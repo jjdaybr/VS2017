@@ -22,10 +22,7 @@ namespace SW
             isVisible = false;
             menuIndex = -1;
         }
-
         
-
-
         public void Initialize()
         {
             menuList = new List<MenuStructure>();
@@ -34,17 +31,33 @@ namespace SW
             ms.MenuEntries.Add("Start Game");
             ms.Close = "Quit";
             menuList.Add(ms);
-
             menuIndex = 0;
+        }
+
+        public void LoadContent(ContentManager content)
+        {
+            foreach(MenuStructure m in menuList)
+            {
+                m.LoadContent(content);
+            }
         }
 
         public void Draw(SpriteBatch batch)
         {
             if(isVisible)
             {
-                
+                menuList[menuIndex].Draw(batch);
             }
         }
 
+        public void Show()
+        {
+            isVisible = true;
+        }
+
+        public void Hide()
+        {
+            isVisible = false;
+        }
     }
 }

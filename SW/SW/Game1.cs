@@ -13,6 +13,7 @@ namespace SW
         SpriteBatch spriteBatch;
 
         LocalPlayer localPlayer = new LocalPlayer();
+        MenuEngine me = new MenuEngine();
 
         public Game1()
         {
@@ -36,6 +37,7 @@ namespace SW
             localPlayer.Initialize();
             localPlayer.IsRunning = true;
             ScreenManager.CalculateGraphicScaling(graphics);
+            me.Initialize();
             base.Initialize();
         }
 
@@ -50,7 +52,8 @@ namespace SW
 
             // TODO: use this.Content to load your game content here
             localPlayer.LoadContent(Content);
-            
+            me.LoadContent(Content);
+            me.Show();
         }
 
         /// <summary>
@@ -92,7 +95,7 @@ namespace SW
 
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp);
             localPlayer.Draw(spriteBatch);
-            
+            me.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
