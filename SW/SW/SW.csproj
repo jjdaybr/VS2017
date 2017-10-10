@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CowManager.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="LocalPlayer\LocalPlayer.cs" />
     <Compile Include="LocalPlayer\Particle.cs" />
